@@ -1,0 +1,29 @@
+<%- include("parts/header") %>
+<%- include("parts/navbar") %>
+<div class="container text-center">
+    <h3>Create Account</h3>
+    <form action="/signup" method="post" >
+      <input type="text" class="form-control" name="username" placeholder="Enter your Name">
+      <input type="email" class="form-control" name="email" placeholder="Enter your Email">
+      <input type="password" class="form-control" name="password" placeholder="Enter your Password">
+      <input type="submit" value="Create Account" class="btn btn-primary">
+    </form>
+    <br>
+
+    <% if(error){%>
+      <p class="alert alert-danger"> 
+        <%= error%>
+      </p>
+      <%}%>
+    <div>
+
+      <% for(let err of validationErr) {%>
+        <p class="alert alert-danger"> 
+          <%= err.msg%>
+        </p>
+        <% }%>
+      Already Have Account ? <a href="/login">LogIn</a>
+    </div>
+</div>
+
+  <%- include("parts/footer") %>

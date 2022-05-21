@@ -1,0 +1,43 @@
+<%- include("parts/header") %>
+<%- include("parts/navbar2") %>
+
+<div class="container text-center">
+    <form action="/admin/manage" method="post">
+        <input type="text" name="id" class="form-control" placeholder="User Id">
+        <input type="submit" value="Search" class="btn btn-primary" >
+    </form>
+    <br>
+    <br>
+    <div class="container">
+        <% if(items.length === 0){ %>
+            <p class="alert alert-danger">
+                there is no item
+            </p>
+        <% } else{%>
+            <table>
+                <thead>
+                    <td>No</td>
+                    <td>Product Name </td>
+                    <td>Amount</td>
+                    <td>Total Price</td>
+                    <td>Address</td>
+                    
+                </thead>
+                <tbody>
+                    <% for(let i = 0 ; i < items.length ; i++){ %>
+                        <tr>
+                            <td> <%= i+1 %> </td> 
+                            <td> <%= items[i].productName %></td>
+                            <td> <%= items[i].productAmount %></td>
+                            <td> <%= items[i].productTotalPrice %></td>
+                            <td> <%= items[i].Address %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</div>
+
+
+<%- include("parts/footer") %>

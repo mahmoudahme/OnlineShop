@@ -1,0 +1,19 @@
+<%- include("parts/header") %>
+
+<%- include("parts/navbar") %>
+<div class="container text-center">
+    <h3>Log In</h3>
+    <form action="/login" method="post" >
+      <input type="email" class="form-control" name="email" placeholder="Enter your Email">
+      <input type="password" class="form-control" name="password" placeholder="Enter your Password">
+      <input type="submit" value="LogIn" class="btn btn-primary">
+    </form>
+    <br>
+    <% if(error){%>
+    <p class="alert alert-danger"> 
+      <%= error%>
+    </p>
+    <%}%>
+</div>
+
+  <%- include("parts/footer") %>

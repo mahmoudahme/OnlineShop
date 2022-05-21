@@ -1,0 +1,31 @@
+<%- include("parts/header") %>
+<%- include("parts/navbar2") %>
+<div class="container">
+        <div class="row" style="align-items: center;">
+            <div class="col-md-6 col col-12">
+                <img src="/<%= prodects.image %>"/>
+                <% if(valedationErr) {%>
+                    <p class="alert alert-danger"> 
+                      <%= valedationErr.msg%>
+                    </p>
+                    <% }%>
+                  <form action="/card" method="POST">
+                    <input type="number" name="amount" class="form-control">
+                    <input type="hidden" name="name" class="form-control" value="<%= prodects.name%>">
+                    <input type="hidden" name="price" class="form-control" value="<%= prodects.price%>">
+                    <input type="hidden" name="productId" class="form-control" value="<%= prodects.id%>">
+                    <input type="hidden" name="redirectTo" value="/product/<%= prodects.id%>">
+                    <input type="submit" value="Add to Card" class="btn btn-primary">
+                  </form>
+            </div>
+        
+        <div class="col-md-6 col col-12">
+            <h3><%= prodects.name%></h3>
+            <h3>price : <%= prodects.price%> $</h3>
+            <h5><%= prodects.description%></h5>
+            <p></p>
+        </div>
+
+        </div>
+</div>
+<%- include("parts/footer") %>

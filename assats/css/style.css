@@ -1,0 +1,144 @@
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing:border-box;
+    padding:0px;
+    margin: 0px;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: "Open Sans", sans-serif;
+    background-color: #f7fafd ;
+}
+ul{
+    list-style: none;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* Small */
+  @media (min-width: 768px) {
+    .container {
+      width: 750px;
+    }
+  }
+  /* Medium */
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  }
+  /* Large */
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+/* the main rules */
+/* start header */
+header{
+background-color: #f7fafd ;
+}
+header nav{
+    padding:20px 1px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header nav .div_for_img img{
+    width: 120px;
+}
+
+header nav .div_for_links ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header nav .div_for_links ul li{
+    padding: 5px 30px;
+}
+header nav .div_for_links ul li a{
+    color: black;
+    text-decoration: none;
+    transition: all 0.5s;
+    font-weight: bolder;
+    font-size: 15px;
+}
+header nav .div_for_links ul li a:hover{
+    color: #ff556e;
+
+}
+header nav .div_for_button button {
+    padding: 10px 30px;
+    background-color: white;
+    color: #ff556e;
+    border-radius: 40px;
+    border:3px solid #ff556e;
+    transition: all 0.5s;
+    width: 100%;
+    font-weight: bolder;
+}
+header nav .div_for_button button:hover{
+    background-color: #ff556e;
+    color: white;
+}
+header nav .for_icon{
+    display: none;
+}
+@media (max-width: 992px) {
+    header{
+        position: relative;
+        box-shadow: -12px -3px 13px 2px;
+    }
+    header nav{
+        padding:20px 1px ;
+        display: flex;
+        align-items: center;
+    }
+    header nav .div_for_links{
+        display: none;
+    }
+    header nav .div_for_button button {
+        display: none;
+    }
+    header nav .for_icon{
+        display: block;
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+    header nav .for_icon .div_for_links{
+        transition: 0.5s all ;
+    }
+    header nav .div_for_links ul{
+            flex-direction: column;
+            position: absolute;
+            left: 0px;
+            top: 88px;
+            background-color: #f7fafd ;
+            width: 100%;
+
+    }
+    header nav .div_for_links ul li{
+        padding: 20px;
+        box-shadow: -8px 6px 16px 1px black;
+        width: 100%;
+        left: 0px;
+    }
+
+  }
+/* end header */
+.card1{
+    padding: 20px;
+}
+
+table, th, td {
+    border: 1px solid;
+    padding: 20px;
+  }

@@ -1,0 +1,20 @@
+<%- include("parts/header") %>
+<%- include("parts/navbar2") %>
+
+<div class="container text-center">
+    <form action="/order" class="form-control" method="POST"> 
+        
+        Enter your address
+        <br>
+        <br>
+        <input type="hidden" name="productAmount" value="<%= data.amount%>"> 
+        <input type="hidden" name="productName" value="<%= data.productName%>"> 
+        <input type="hidden" name="productTotalPrice" value="<%= data.totlaPRice%>"> 
+        <input type="hidden" name="productId" value="<%= data.cardId%>"> 
+        <input type="text" name="address" class="form-control" placeholder="Enter your address">
+        <input type="hidden" name="redirectTo" value="/">
+        <input type="submit" value="Order" class="btn btn-primary" >
+    </form>
+</div>
+
+<%- include("parts/footer") %>

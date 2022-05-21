@@ -1,0 +1,53 @@
+<%- include("parts/header") %>
+<%- include("parts/navbar2") %>
+
+<div class="container text-center">
+    <h3>Add Product</h3>
+    <form action="/admin/add" method="post" enctype="multipart/form-data">
+        <input type="text" name="name" class="form-control" placeholder="Name">
+        <% let nameError = error.find(err=>err.param ==='name') %>
+        <% if(nameError) { %>
+            <p class="alert alert-danger">
+                <%= nameError.msg %>
+            </p>
+        <%}%>
+        <input type="number" name="price" class="form-control" placeholder="Price">
+        <% let priceError = error.find(err=>err.param ==='price') %>
+        <% if(priceError) { %>
+            <p class="alert alert-danger">
+                <%= priceError.msg %>
+            </p>
+        <%}%>
+        <input type="password" name="description" class="form-control" placeholder="Description">
+        <% let descriptionError = error.find(err=>err.param ==='description') %>
+        <% if(descriptionError) { %>
+            <p class="alert alert-danger">
+                <%= descriptionError.msg %>
+            </p>
+        <%}%>
+        
+        <select name="category" class="form-control" type="password">
+            <option value="laptop">Laptop</option>
+            <option value="hard">Hard Disk</option>
+            
+        </select>
+        <% let categoryError = error.find(err=>err.param ==='category') %>
+        <% if(categoryError) { %>
+            <p class="alert alert-danger">
+                <%= categoryError.msg %>
+            </p>
+        <%}%>
+        <input type="file" name="image" class="form-control" placeholder="Image">
+        <% let imageError = error.find(err=>err.param ==='image') %>
+        <% if(imageError) { %>
+            <p class="alert alert-danger">
+                <%= imageError.msg %>
+            </p>
+        <%}%>
+
+        <input type="submit" value="Add Product" class="btn btn-primary">
+    </form>
+</div>
+
+
+<%- include("parts/footer") %>

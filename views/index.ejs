@@ -1,0 +1,47 @@
+<%- include("parts/header") %>
+<%- include("parts/navbar") %>
+<div class="container">
+    <form action="/" method="get">
+      <select name="category" class="form-control">
+          <option value="all">All</option>
+          <option value="laptop">Laptop</option>
+          <option value="hard">Hard Disk</option>
+          <option value="t-Shirt">t-Shirt</option>
+      </select>
+      <input type="submit" value="filter" class="btn btn-primary">
+    </form>
+    <% if(valedationErr) {%>
+      <p class="alert alert-danger"> 
+        <%= valedationErr.msg%>
+      </p>
+      <% }%>
+    <div class="row">
+      <% if(prodects.length === 0 ){%>
+          <%- include("parts/empty") %>
+          <% }else{ %>
+          <% for(let product of prodects) {%>
+            <div class="col-lg-4 card1">
+              <div class="card" style="width: 18rem;">
+                <img src="<%= product.image%>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">
+                    <a href="/product/<%= product.id%>"><%= product.name%></a>
+                  </h5>
+                  <p>Price : <%= product.price%> $</p>
+                  <p class="card-text"><%= product.description%></p>
+                  <form action="/card" method="POST">
+                    <input type="number" name="amount" class="form-control">
+                    <input type="hidden" name="name" class="form-control" value="<%= product.name%>">
+                    <input type="hidden" name="price" class="form-control" value="<%= product.price%>">
+                    <input type="hidden" name="productId" class="form-control" value="<%= product.id%>">
+                    <input type="hidden" name="redirectTo" value="/">
+                    <input type="submit" value="Add to Card" class="btn btn-primary">
+                  </form>
+                </div>
+              </div>
+            </div>
+            <% } %>
+            <% }%>
+    </div>
+</div>
+<%- include("parts/footer") %>

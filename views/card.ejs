@@ -1,0 +1,48 @@
+<%- include("parts/header") %>
+<%- include("parts/navbar2") %>
+
+<div class="container">
+    <% if(items.length === 0){ %>
+        <p class="alert alert-danger">
+            there is no item
+        </p>
+    <% } else{%>
+        <table>
+            <thead>
+                <td>No</td>
+                <td>Product Name </td>
+                <td>Price</td>
+                <td>Amount</td>
+                <td>Total</td>
+                <td></td>
+            </thead>
+            <tbody>
+                <% for(let i = 0 ; i < items.length ; i++){ %>
+                    <tr>
+                        <td> <%= i+1 %> </td> 
+                        <td> <%= items[i].name %></td>
+                        <td> <%= items[i].price %></td>
+                        <form method="POST">
+                            <td> <input type="number" name="amount" value="<%= items[i].amount %>"  class="form-control"></td>
+                            <td> <%= items[i].price * items[i].amount  %> $ </td>
+                            <td>
+                            <input type="hidden" name="productName" value="<%= items[i].name %>">
+                            <input type="hidden" name="totlaPRice" value="<%= items[i].price * items[i].amount  %> $">   
+                            <input type="hidden" name="cardId" value="<%= items[i]._id %>">
+                            <input type="submit" value="Save" formaction="/card/save" class="btn btn-success">
+                            <input type="submit" value="Order" formaction="/order/order" class="btn btn-primary">
+                            <input type="submit" value="Delete" formaction="/card/delete"  class="btn btn-danger">
+                            </td>
+                        </form>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    <% } %>
+    <form action="/card/deletAll" method="POST">
+        <input type="submit" value="Delete ALL" class="btn btn-danger">
+    </form>
+</div>
+
+
+<%- include("parts/footer") %>

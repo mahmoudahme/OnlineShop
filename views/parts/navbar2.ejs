@@ -1,0 +1,36 @@
+<!-- start header -->
+<header>
+    <div class="container">
+        <nav>
+            <div class="div_for_img">
+                <img src="/images/logo.svg" alt="">
+            </div>
+            <div class="for_icon">
+                <i class="fa fa-bars" style="font-size:48px;"></i>
+            </div>
+        
+            <div class="div_for_links">
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <% if(isUser) {%>
+                        <li><a href="/card">Cards</a></li>
+                        <li><a href="/order">Orders</a></li>
+                    <% }else{ %>
+                        <li><a href="/login">LogIn</a></li>
+                        <li><a href="/signup">SignUp</a></li>
+                    <% } %>
+                    <% if(isAdmin){%>
+                        <li><a href="/admin/add">Add Product</a></li>
+                        <li><a href="/admin/manage">Manage Product</a></li>
+                    <%} %>
+                </ul>
+            </div>
+            <% if(isUser) {%>
+            <form action="/logout" method="POST">
+                <input type="submit" value="log Out" class="btn btn-danger">
+            </form>
+            <%}%>
+        </nav>
+    </div>
+</header>
+<!-- end header -->

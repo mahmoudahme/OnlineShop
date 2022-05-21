@@ -1,0 +1,45 @@
+<%- include("parts/header") %>
+<%- include("parts/navbar2") %>
+
+<div class="container">
+    <div class="container">
+        <% if(items.length === 0){ %>
+            <p class="alert alert-danger">
+                there is no item
+            </p>
+        <% } else{%>
+            <table>
+                <thead>
+                    <td>No</td>
+                    <td>Product Name </td>
+                    <td>Amount</td>
+                    <td>Total Price</td>
+                    <td>Address</td>
+                    <td></td>
+                    
+                </thead>
+                <tbody>
+                    <% for(let i = 0 ; i < items.length ; i++){ %>
+                        <tr>
+                            <td> <%= i+1 %> </td> 
+                            <td> <%= items[i].productName %></td>
+                            <td> <%= items[i].productAmount %></td>
+                            <td> <%= items[i].productTotalPrice %></td>
+                            <td> <%= items[i].Address %></td>
+                            <td>
+                                <form action="/order/delete" method="Post">
+                                    <input type="hidden" name="orderID" value="<%=items[i]._id %>">
+                                    <input type="submit" value="Delete" class="btn btn-danger">
+                                </form>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        <% } %>
+        <form action="/order/deletAll" method="POST">
+            <input type="submit" value="Delete ALL" class="btn btn-danger">
+        </form>
+    </div>
+</div>
+<%- include("parts/footer") %>
